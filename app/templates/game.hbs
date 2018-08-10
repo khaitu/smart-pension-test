@@ -1,0 +1,40 @@
+{{#if round}}
+  <div class="row">
+    <div class="col s12 m4 offset-m2">
+      {{trump-card title=round.player1.title attributes=round.player1.attributes isWinner=round.player1.isWinner}}
+    </div>
+    <div class="col s12 m4">
+      {{trump-card title=round.player2.title attributes=round.player2.attributes isWinner=round.player2.isWinner}}
+    </div>
+  </div>
+{{else}}
+  <div class="row">
+    <div class="col m12 s12 center">
+      <h4>Click Play to Start!</h4>
+    </div>
+  </div>
+{{/if}}
+
+<div class="row">
+  <div class="col m4 s12 center offset-m2">
+    {{score-card name='Player 1' score=scores.player1}}
+  </div>
+  <div class="col m4 s12 center">
+    {{score-card name='Player 2' score=scores.player2}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col m2 s12 center offset-m5">
+    <p>Select an attribute to compare:</p>
+    {{#power-select selected=attribute options=attributes onchange=(action (mut attribute)) as |name|}}
+      {{format-attribute name}}
+    {{/power-select}}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col m12 s12 center">
+    <span class="waves-effect waves-light btn" {{action 'newGame'}}>Roll the Dice!</span>
+  </div>
+</div>

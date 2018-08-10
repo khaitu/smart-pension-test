@@ -1,0 +1,19 @@
+<div class="card light-blue {{if isWinner 'lighten' 'darken'}}-2">
+  <div class="card-content white-text">
+    <div class="card-title">
+      {{title}}
+
+      <span class="new badge {{unless isWinner 'red'}}" data-badge-caption="">
+        {{#if isWinner}}
+          Winner
+        {{else}}
+          Loser
+        {{/if}}
+      </span>
+    </div>
+
+    {{#each-in attributes as |key value|}}
+      <p>{{format-attribute key}}: {{value}}</p>
+    {{/each-in}}
+  </div>
+</div>
